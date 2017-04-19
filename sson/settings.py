@@ -25,7 +25,8 @@ SECRET_KEY = 'n(rf174dvp7s30k#k#)_%g=!%#if7ccx8fvu$vmvz-5!ks@5i&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ssonmockup.herokuapp.com', 'localhost', '127.0.0.1']
+
 
 
 # Application definition
