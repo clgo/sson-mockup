@@ -1,0 +1,118 @@
+h4 { font-weight: bold; }
+
+.title { 
+	background-color: #e6e4e5;
+	padding: 15px; 
+	font-size: 1.75em; 
+	font-family: Tahoma, Geneva, sans-serif;	
+}
+
+.linkmenu { 
+	background-color: #010101;  
+	padding: 15px; 
+}
+
+.subtitle { 
+	background-color: #FEE334;  
+	padding: 5px 5px 5px 15px; 
+	font-size: 1.25em; 
+	font-weight: bold;
+}
+
+.footer { 
+	background-color: #FFF097; 
+	padding: 15px; 
+}
+
+.bodycontent { 
+	padding-left: 15px; 
+}
+
+a {
+	color: white;
+}
+
+
+/* Style bootstrap default navbar */
+.navbar-default {
+    background-color: #010101;
+    padding: 0px;
+    margin: 0px;
+}
+
+.navbar-default .navbar-nav > li > a {
+   color: yellow; /*Change active text color here*/
+
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: white; /* default nav link text, link background */
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
+    color: yellow;
+    background-color: #010101;
+}
+
+/* add in divider for navbar */
+.navbar .divider-vertical {
+	text-align:center;
+    height: 20px;
+    margin: 15px 0px;
+    border-right: 1px solid #ffffff;
+    border-left: 1px solid #f2f2f2;
+}
+
+.navbar-inverse .divider-vertical {
+    border-right-color: #222222;
+    border-left-color: #111111;
+}
+
+/* Remove the empty space on the left */
+.navbar .container-fluid, .navbar-collapse {
+    padding-left: 0;    
+}
+.navbar-collapse.in {
+    padding-left:30px;
+}
+
+#chartdemo {
+	float: left;
+	width: 70%; 
+	height: 400px;
+}
+
+#container2 {
+	float: left;
+	width: 30%; 
+	height: 400px; 
+	background-color: #E7E6E6;
+}
+
+.wrapper {
+  padding: 0;  
+  max-width: 520px;
+  margin: 0;
+}
+
+li span { position: relative; left: 15px; }
+
+.wrapper ul {
+	padding-left: 10px;
+}
+
+.wrapper1 ul {
+	padding-left: 20px;
+	padding-top: 15px;
+	padding-right: 10px;
+	font-size: 1.25em;
+	color: black;
+}
+
+.wrapper1 li { margin: 20px 10px; }
+
+.contentfooter p {
+	color: grey;
+	font-style: italic;
+	font-size: 0.98em;
+}

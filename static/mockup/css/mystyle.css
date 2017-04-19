@@ -1,0 +1,59 @@
+.title { 
+	background-color: #e6e4e5;
+	padding: 15px; 
+	font-size: 1.25em; 
+	font-family: Tahoma, Geneva, sans-serif; 
+}
+
+.linkmenu { 
+	background-color: #010101;  
+	padding: 15px; 
+}
+
+.menu { 
+	background-color: #FEE334;  
+	padding: 15px; 
+}
+
+.footer { 
+	background-color: #FFF097; 
+	padding: 15px; 
+}
+
+.bodycontent { 
+	padding: 25px; 
+}
+
+a {
+	color: white;
+}
+
+.navigationbar {
+	background-color: #010101;
+	padding: 15px;
+	margin: 0px;
+}
+
+div.navigationbar li.active a{
+	color: yellow;
+	font-weight: bold;
+}
+
+.navigationbar ul {
+	margin: 0;
+  	/*padding: 15px;*/
+}
+
+.navigationbar ul li {
+	list-style-type: none;
+  	display: inline;
+}
+/*
+.navbar a {
+	color: white;
+}
+*/
+.navigationbar li:not(:first-child):before {
+  	content: " | ";
+  	padding: 10px;
+}

@@ -1,0 +1,116 @@
+{% extends "mockup\base.html" %}
+{% load static %}
+
+{% block title %}SSON Analytics Test Workbook 2017{% endblock %}
+{% block subtitle %}
+BAR CHART BREAKDOWN 2017
+{% endblock %}
+{% block activepage %} class="active" {% endblock %} 
+
+{% block content %}
+
+<div id="chartdemo"></div>
+<div id="container2">
+<div class="wrapper1">
+<ul>
+    <li><span>In pretium, eros quis ultrices varius, augue est interdum odio, eu bibendum nisl neque et velit.<span></li>
+    <li><span>Praesent faucibus facilisis pharetra.<span></li>
+    <li><span>Nullam ullamcorper at felis in fringilla. Morbi eget euismod nisl, at dapibus risus.<span></li>
+</ul>
+</div>
+</div>
+{% endblock %}
+
+{% block additional_js %}
+
+<script type='text/javascript' src="{% static 'mockup/js/highcharts.js' %}"></script>
+<script>
+	$(function () { 
+		var colors = ['blue','green','yellow','orange','red'];
+    		var options = {
+    			chart: {
+    					renderTo: 'chartdemo',
+    					type: 'column'
+    			},
+    			title: { // Chart Title
+    				text: 'Cras rhoncus laoreet semper',
+                    style: {
+                            fontSize: '20px', 
+                            fontWeight: 'bold',
+                            fontFamily: 'Tahoma, Geneva, sans-serif',
+                    },
+
+    			},
+                yAxis: {
+                   title: {text: null}, // disable yAxis label text            
+        	       labels: {
+        		      formatter: function() {
+        			         return this.value+"%";
+        		      }
+        	       }
+                },
+                xAxis: {
+                    title: {text: null}, // disable xAxis label text             
+                },
+        
+                series: [
+                {
+                    showInLegend: false,            
+                    dataLabels: {
+            	               enabled: true,
+                               color: ['#FFFFFF','#000000','#000000','#000000','#000000','#FFFFFF'],
+        	                   align: 'center',
+                               useHTML: true,
+                               inside: true, // Place the datalabels inside the box
+            	               //format: '{y}%', // if format is use, it will take precendence of formatter.
+    	                       style: {                    
+        	                           fontSize: '13px',
+            	                       fontFamily: 'Verdana, sans-serif'
+                                },
+                                formatter: function() {                    
+                                        if (this.x == 'A' || this.x == 'F') {
+                                        // Style the text color for column A & F only
+                                                return '<span style="color: white;">' + this.y + '%' + '</span>';
+                                        } 
+                                        else {
+                                                return this.y + '%';                        
+                                        }
+                                },
+                                
+                    } // End of dataLabels
+                }],  // End of Series
+                plotOptions: {
+                        column: {
+                                colorByPoint: true,
+                        },                
+                },
+                colors: ['#9E2D36', '#EA5B65', '#F8C0C1', '#C4E9E3', '#3EB5A1', '#0F7F6B'],
+       
+    		} // End of options
+
+    		url = "{% url 'mockup:getchartdata' %}";			
+			$.ajax({
+				url: url,
+				type: "GET",
+				data: {},
+				dataType: "json",
+				contentType: "application/json",
+				success: function(data){
+                    var keys = [], vals = [];
+                    // split out the keys and value pairs in jason object
+                    for (var key in data){
+                        if (data.hasOwnProperty(key)) {
+                            keys.push(key);
+                            vals.push(data[key]);
+                        }
+                    }
+                    
+                    options.xAxis.categories = keys;
+					options.series[0].data = vals;                    
+					var chart = new Highcharts.Chart(options);	
+				}
+			})
+	});
+	
+</script>
+{% endblock %}
